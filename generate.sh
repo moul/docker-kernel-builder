@@ -6,7 +6,7 @@ for version in $VERSIONS; do
     mkdir -p ${version}
     cat <<EOF > ${version}/Dockerfile
 # ${version}
-FROM ubuntu:latest
+FROM ubuntu:vivid
 
 ENV KVER ${version}
 RUN apt-get update \
