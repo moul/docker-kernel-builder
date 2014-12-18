@@ -1,6 +1,7 @@
+# 3.18
 FROM ubuntu:latest
 
 ENV KVER 3.18
-RUN apt-get update && apt-get -y -q upgrade && apt-get clean
+RUN apt-get update && apt-get -y -q upgrade && apt-get -y -q install wget && apt-get clean
 RUN mkdir -p /usr/src/linux && wget -q https://kernel.org/pub/linux/kernel/v3.x/linux-$KVER.tar.xz | tar -C /usr/src/linux/ -xf -
 WORKDIR /usr/src/linux
