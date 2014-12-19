@@ -22,6 +22,14 @@ RUN mkdir -p /usr/src/ \
  && ln -s /usr/src/linux /usr/src/linux \
  && mkdir -p /dist
 WORKDIR /usr/src/linux
+
+# Ccache
+ENV CCACHE_DIR /ccache
+ENV CC ccache gcc
+ENV CXX ccache g++
+#ENV PATH /usr/lib/ccache:$PATH
+RUN mkdir -p /ccache
+
 EOF
 
     mkdir -p ${version}-cross-armhf
@@ -33,6 +41,8 @@ EOF
 RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
 ENV ARCH arm
 ENV CROSS_COMPILE arm-linux-gnueabihf-
+ENV CC ccache arm-linux-gnueabihf-gcc
+ENV CXX ccache arm-linux-gnueabihf-g++
 EOF
 
     mkdir -p ${version}-cross-armel
@@ -43,6 +53,8 @@ EOF
 RUN apt-get -y -q install gccgo-4.7-arm-linux-gnueabi u-boot-tools
 
 ENV ARCH arm
+ENV CC ccache arm-linux-gnueabi-gcc
+ENV CXX ccache arm-linux-gnueabi-g++
 ENV CROSS_COMPILE arm-linux-gnueabi-
 EOF
 
