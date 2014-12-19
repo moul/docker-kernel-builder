@@ -2,10 +2,11 @@
 FROM ubuntu:vivid
 
 ENV KVER 3.17
-RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils  && apt-get clean
+RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential  && apt-get clean
 RUN mkdir -p /usr/src/  && wget -q https://kernel.org/pub/linux/kernel/v3.x/linux-$KVER.tar.xz -O - | tar -C /usr/src/ -xJf -  && ln -s /usr/src/linux-$KVER /usr/src/linux
 WORKDIR /usr/src/linux
 
-# cross-arm specific
-RUN apt-get -y -q install gcc-arm-none-eabi
+# cross-armel specific
+RUN apt-get -y -q install gccgo-4.7-arm-linux-gnueabi
 ENV ARCH arm
+ENV CROSS_COMPILE arm-linux-gnueabi-
