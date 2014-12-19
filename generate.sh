@@ -24,7 +24,8 @@ EOF
     cat <<EOF >> ${version}-cross-armhf/Dockerfile
 
 # cross-armhf specific
-RUN apt-get -y -q install gcc-4.9-arm-linux-gnueabihf u-boot-tools
+# RUN dpkg --add-architecture armhf
+RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf
 ENV ARCH arm
 ENV CROSS_COMPILE arm-linux-gnueabihf-
 EOF
@@ -35,6 +36,7 @@ EOF
 
 # cross-armel specific
 RUN apt-get -y -q install gccgo-4.7-arm-linux-gnueabi u-boot-tools
+
 ENV ARCH arm
 ENV CROSS_COMPILE arm-linux-gnueabi-
 EOF

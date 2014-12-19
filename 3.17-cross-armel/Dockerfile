@@ -8,5 +8,6 @@ WORKDIR /usr/src/linux
 
 # cross-armel specific
 RUN apt-get -y -q install gccgo-4.7-arm-linux-gnueabi u-boot-tools
+
 ENV ARCH arm
 ENV CROSS_COMPILE arm-linux-gnueabi-

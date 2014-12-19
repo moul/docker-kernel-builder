@@ -7,6 +7,7 @@ RUN mkdir -p /usr/src/  && wget -q https://kernel.org/pub/linux/kernel/v3.x/linu
 WORKDIR /usr/src/linux
 
 # cross-armhf specific
-RUN apt-get -y -q install gcc-4.9-arm-linux-gnueabihf u-boot-tools
+# RUN dpkg --add-architecture armhf
+RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf
 ENV ARCH arm
 ENV CROSS_COMPILE arm-linux-gnueabihf-
