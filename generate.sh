@@ -14,7 +14,7 @@ RUN apt-get update \
  && apt-get -y -q install libncurses-dev wget xz-utils \
  && apt-get clean
 RUN mkdir -p /usr/src/linux \
- && wget -q https://kernel.org/pub/linux/kernel/v3.x/linux-\$KVER.tar.xz | tar -C /usr/src/linux/ -xf -
+ && wget -q https://kernel.org/pub/linux/kernel/v3.x/linux-\$KVER.tar.xz -O - | tar -C /usr/src/linux/ -xf -
 WORKDIR /usr/src/linux
 EOF
 
