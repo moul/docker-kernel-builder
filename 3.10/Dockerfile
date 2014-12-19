@@ -11,8 +11,8 @@ WORKDIR /usr/src/linux
 
 # Ccache
 ENV CCACHE_DIR /ccache
-ENV CC ccache gcc
-ENV CXX ccache g++
+#ENV CC ccache gcc
+#ENV CXX ccache g++
 #ENV PATH /usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/root/go/bin
 RUN mkdir -p /ccache
 

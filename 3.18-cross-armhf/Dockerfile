@@ -11,8 +11,8 @@ WORKDIR /usr/src/linux
 
 # Ccache
 ENV CCACHE_DIR /ccache
-ENV CC ccache gcc
-ENV CXX ccache g++
+#ENV CC ccache gcc
+#ENV CXX ccache g++
 #ENV PATH /usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/root/go/bin
 RUN mkdir -p /ccache
 
@@ -21,6 +21,4 @@ RUN mkdir -p /ccache
 # RUN dpkg --add-architecture armhf
 RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
 ENV ARCH arm
-ENV CROSS_COMPILE arm-linux-gnueabihf-
-ENV CC ccache arm-linux-gnueabihf-gcc
-ENV CXX ccache arm-linux-gnueabihf-g++
+ENV CROSS_COMPILE ccache arm-linux-gnueabihf-
