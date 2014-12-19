@@ -2,7 +2,7 @@
 FROM ubuntu:vivid
 
 # Install dependencies
-RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential  && apt-get clean
+RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc  && apt-get clean
 
 # Fetch the kernel
 ENV KVER 3.2
@@ -11,6 +11,6 @@ WORKDIR /usr/src/linux
 
 # ARMHF specifics
 # RUN dpkg --add-architecture armhf
-RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf
+RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
 ENV ARCH arm
 ENV CROSS_COMPILE arm-linux-gnueabihf-
