@@ -28,7 +28,7 @@ EOF
 
 # ARMHF specifics
 # RUN dpkg --add-architecture armhf
-RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf
+RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
 ENV ARCH arm
 ENV CROSS_COMPILE arm-linux-gnueabihf-
 EOF
