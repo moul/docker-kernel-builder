@@ -13,6 +13,6 @@ WORKDIR /usr/src/linux
 ENV CCACHE_DIR /ccache
 #ENV CC ccache gcc
 #ENV CXX ccache g++
-#ENV PATH /usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/root/go/bin
+#ENV PATH /usr/lib/ccache:/usr/local/bin:/usr/local/sbin::/Users/moul/mbin:/Users/moul/mbin2:/Users/moul/node_modules/.bin/usr/local/share/npm/bin:/bin:/sbin:/usr/bin:/usr/sbin:/Users/moul/go/bin/
 RUN mkdir -p /ccache
 
