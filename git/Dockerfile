@@ -1,4 +1,4 @@
-# 3.18
+# git
 FROM ubuntu:vivid
 
 # Install dependencies
@@ -11,6 +11,4 @@ WORKDIR /usr/src/linux
 
 # Ccache
 ENV CCACHE_DIR /ccache
-#ENV CC ccache gcc
-#ENV CXX ccache g++
 RUN mkdir -p /ccache
