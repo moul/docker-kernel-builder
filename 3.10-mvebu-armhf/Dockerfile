@@ -2,11 +2,11 @@
 FROM ubuntu:vivid
 
 # Install dependencies
-RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache  && apt-get clean
+RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache unzip && apt-get clean
 
 # Fetch the kernel
 ENV KVER 3.10
-RUN mkdir -p /usr/src/ && wget -q https://github.com/MISL-EBU-System-SW/mainline-public/archive/backport-$KVER.zip -O - | tar -C /usr/src/ -xJf -  && ln -s /usr/src/linux-$KVER /usr/src/linux  && ln -s /usr/src/linux /usr/src/linux  && mkdir -p /dist
+RUN mkdir -p /usr/src/ && wget -q https://github.com/MISL-EBU-System-SW/mainline-public/archive/backport-$KVER.zip -O /tmp/$KVER.zip && unzip /tmp/$KVER.zip -d /usr/src/ && ln -s /usr/src/linux-$KVER /usr/src/linux  && mkdir -p /dist && rm -f /tmp/$KVER.zip
 WORKDIR /usr/src/linux
 
 # Ccache
