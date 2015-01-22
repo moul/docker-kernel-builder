@@ -6,7 +6,7 @@ RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurse
 
 # Fetch the kernel
 ENV KVER 3.10
-RUN mkdir -p /usr/src/ && wget -q https://github.com/MISL-EBU-System-SW/mainline-public/archive/backport-$KVER.zip -O /tmp/$KVER.zip && unzip /tmp/$KVER.zip -d /usr/src/ && ln -s /usr/src/linux-$KVER /usr/src/linux  && mkdir -p /dist && rm -f /tmp/$KVER.zip
+RUN mkdir -p /usr/src/ && wget -q https://github.com/MISL-EBU-System-SW/mainline-public/archive/backport-$KVER.zip -O /tmp/$KVER.zip && unzip /tmp/$KVER.zip -d /usr/src/ && ln -s /usr/src/mainline-public-backport-$KVER /usr/src/linux  && mkdir -p /dist && rm -f /tmp/$KVER.zip
 WORKDIR /usr/src/linux
 
 # Ccache
