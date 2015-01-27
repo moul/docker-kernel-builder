@@ -2,7 +2,7 @@
 FROM ubuntu:vivid
 
 # Install dependencies
-RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache  && apt-get clean
+RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache git  && apt-get clean
 
 RUN wget http://ftp.fr.debian.org/debian/pool/main/d/device-tree-compiler/device-tree-compiler_1.4.0+dfsg-1_amd64.deb -O /tmp/dtb.deb  && dpkg -i /tmp/dtb.deb  && rm -f /tmp/dtb.deb
 
