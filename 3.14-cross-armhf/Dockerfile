@@ -1,5 +1,5 @@
 # 3.14
-FROM ubuntu:vivid
+FROM ubuntu:latest
 
 # Install dependencies
 RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache git  && apt-get clean
