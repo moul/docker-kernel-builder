@@ -1,5 +1,5 @@
 # 3.17
-FROM ubuntu:latest
+FROM ubuntu:vivid
 
 # Install dependencies
 RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache git  && apt-get clean
