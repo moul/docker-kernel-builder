@@ -14,7 +14,7 @@ ENV CCACHE_DIR /ccache
 RUN mkdir -p /ccache
 
 # ARMEL specifics
-RUN apt-get -y -q install gccgo-4.7-arm-linux-gnueabi u-boot-tools
+RUN apt-get update && apt-get -y -q upgrade && apt-get -y -q install gccgo-4.7-arm-linux-gnueabi u-boot-tools
 
 ENV ARCH arm
 ENV CROSS_COMPILE ccache arm-linux-gnueabi-

@@ -42,7 +42,7 @@ EOF
 
 # ARMHF specifics
 # RUN dpkg --add-architecture armhf
-RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
+RUN apt-get update && apt-get -y -q upgrade && apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
 ENV ARCH arm
 ENV CROSS_COMPILE ccache arm-linux-gnueabihf-
 EOF
@@ -52,7 +52,7 @@ EOF
     cat <<EOF >> ${version}-cross-armel/Dockerfile
 
 # ARMEL specifics
-RUN apt-get -y -q install gccgo-4.7-arm-linux-gnueabi u-boot-tools
+RUN apt-get update && apt-get -y -q upgrade && apt-get -y -q install gccgo-4.7-arm-linux-gnueabi u-boot-tools
 
 ENV ARCH arm
 ENV CROSS_COMPILE ccache arm-linux-gnueabi-

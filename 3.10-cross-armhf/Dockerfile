@@ -21,6 +21,6 @@ RUN mkdir -p /ccache
 
 # ARMHF specifics
 # RUN dpkg --add-architecture armhf
-RUN apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
+RUN apt-get update && apt-get -y -q upgrade && apt-get -y -q install u-boot-tools gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
 ENV ARCH arm
 ENV CROSS_COMPILE ccache arm-linux-gnueabihf-
