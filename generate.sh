@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSIONS="3.2 3.10 3.19 4.0"
+VERSIONS="3.2 3.19 4.0"
 
 for version in $VERSIONS; do
     mkdir -p ${version}
