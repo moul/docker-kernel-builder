@@ -8,7 +8,7 @@ RUN wget http://ftp.fr.debian.org/debian/pool/main/d/device-tree-compiler/device
 
 # Fetch the kernel
 ENV KVER 4.0
-RUN mkdir -p /usr/src/  && wget -q https://kernel.org/pub/linux/kernel/v3.x/linux-$KVER.tar.xz -O - | tar -C /usr/src/ -xJf -  && ln -s /usr/src/linux-$KVER /usr/src/linux  && ln -s /usr/src/linux /usr/src/linux  && mkdir -p /dist
+RUN mkdir -p /usr/src/  && wget -q https://kernel.org/pub/linux/kernel/v4.x/linux-$KVER.tar.xz -O - | tar -C /usr/src/ -xJf -  && ln -s /usr/src/linux-$KVER /usr/src/linux  && ln -s /usr/src/linux /usr/src/linux  && mkdir -p /dist
 WORKDIR /usr/src/linux
 
 # Ccache
