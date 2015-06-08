@@ -3,10 +3,11 @@ docker-kernel-builder
 
 Kernel build environment in Docker
 
-Related projects
-----------------
+Projects using docker-kernel-builder
+------------------------------------
 
 - https://github.com/online-labs/kernel-config
+- https://github.com/moul/travis-docker/tree/master/uml-builder
 
 Examples
 --------
