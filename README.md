@@ -3,6 +3,8 @@ docker-kernel-builder
 
 Kernel build environment in Docker
 
+https://registry.hub.docker.com/u/moul/kernel-builder/
+
 Projects using docker-kernel-builder
 ------------------------------------
 
