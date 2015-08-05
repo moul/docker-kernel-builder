@@ -1,6 +1,13 @@
+language: node
+
+sudo: no
+
 install:
-  - curl -sLo - http://j.mp/install-travis-docker | sh -xe
+#  - curl -sLo - http://j.mp/install-travis-docker | sh -xe
+  - npm install -g dockerfile_lint
+
 
 script:
-  - ./run 'cd stable             && docker build -t moul/docker-kernel-builder:stable .             && docker run moul/docker-kernel-builder:stable             echo Build succeed'
-  - ./run 'cd stable-cross-armhf && docker build -t moul/docker-kernel-builder:stable-cross-armhf . && docker run moul/docker-kernel-builder:stable-cross-armhf echo Build succeed'
+#  - ./run 'cd stable             && docker build -t moul/docker-kernel-builder:stable .             && docker run moul/docker-kernel-builder:stable             echo Build succeed'
+#  - ./run 'cd stable-cross-armhf && docker build -t moul/docker-kernel-builder:stable-cross-armhf . && docker run moul/docker-kernel-builder:stable-cross-armhf echo Build succeed'
+  - for dockerfile in */Dockerfile; do dockerfile_lint -f $dockerfile; done
