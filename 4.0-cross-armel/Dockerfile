@@ -2,7 +2,7 @@
 FROM ubuntu:vivid
 
 # Install dependencies
-RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache git  && apt-get clean
+RUN apt-get update  && apt-get -y -q upgrade  && apt-get -y -q install libncurses-dev wget xz-utils build-essential bc ccache git libssl-dev  && apt-get clean
 
 RUN wget http://ftp.fr.debian.org/debian/pool/main/d/device-tree-compiler/device-tree-compiler_1.4.0+dfsg-1_amd64.deb -O /tmp/dtb.deb  && dpkg -i /tmp/dtb.deb  && rm -f /tmp/dtb.deb
 
@@ -27,3 +27,6 @@ ENV CROSS_COMPILE ccache arm-linux-gnueabi-
 
 # Install DTC
 RUN wget http://ftp.fr.debian.org/debian/pool/main/d/device-tree-compiler/device-tree-compiler_1.4.0+dfsg-1_amd64.deb -O /tmp/dtc.deb  && dpkg -i /tmp/dtc.deb  && rm -f /tmp/dtc.deb
+
+# Update git tree
+RUN git fetch --tags
