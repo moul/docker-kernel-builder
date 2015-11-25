@@ -4,6 +4,7 @@ VERSIONS="3.2 3.19 4.0"
 
 for version in $VERSIONS; do
     mkdir -p ${version}
+    version_code=${version:0:1}.x
     cat <<EOF > ${version}/Dockerfile
 # ${version}
 FROM ubuntu:vivid
@@ -21,7 +22,7 @@ RUN wget http://ftp.fr.debian.org/debian/pool/main/d/device-tree-compiler/device
 # Fetch the kernel
 ENV KVER ${version}
 RUN mkdir -p /usr/src/ \
- && wget -q https://kernel.org/pub/linux/kernel/v3.x/linux-\$KVER.tar.xz -O - | tar -C /usr/src/ -xJf - \
+ && wget -q https://kernel.org/pub/linux/kernel/v$version_code/linux-\$KVER.tar.xz -O - | tar -C /usr/src/ -xJf - \
  && ln -s /usr/src/linux-\$KVER /usr/src/linux \
  && ln -s /usr/src/linux /usr/src/linux \
  && mkdir -p /dist
