@@ -1,6 +1,10 @@
-install:
-  - curl -sLo - http://j.mp/install-travis-docker | sh -xe
+language: bash
+
+sudo: required
+
+services:
+- docker
 
 script:
-  - ./run 'cd stable             && docker build -t moul/docker-kernel-builder:stable .             && docker run moul/docker-kernel-builder:stable             echo Build succeed'
-  - ./run 'cd stable-cross-armhf && docker build -t moul/docker-kernel-builder:stable-cross-armhf . && docker run moul/docker-kernel-builder:stable-cross-armhf echo Build succeed'
+- docker build -t moul/docker-kernel-builder:latest .
+# FIXME: test different environments
