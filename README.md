@@ -8,7 +8,7 @@ https://registry.hub.docker.com/u/moul/kernel-builder/
 Projects using docker-kernel-builder
 ------------------------------------
 
-- https://github.com/online-labs/kernel-config
+- https://github.com/scaleway/kernel-tools
 - https://github.com/moul/travis-docker/tree/master/uml-builder
 
 Examples
