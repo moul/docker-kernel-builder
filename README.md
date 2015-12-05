@@ -1,29 +1,42 @@
-docker-kernel-builder
-=====================
+# docker-kernel-builder
 
 Kernel build environment in Docker
 
 https://registry.hub.docker.com/u/moul/kernel-builder/
 
-Projects using docker-kernel-builder
-------------------------------------
+## Projects using docker-kernel-builder
 
 - https://github.com/scaleway/kernel-tools
 - https://github.com/moul/travis-docker/tree/master/uml-builder
 
-Examples
---------
+## Examples
 
-Checkout `v3.19` stable branch of the kernel and do a `make menuconfig` with `armhf` cross tools
+Checkout `v4.3` stable branch of the kernel and do a `make menuconfig`
+
 ```
-docker run -it --rm -v $(pwd)/.config:/tmp/.config moul/kernel-builder:stable-cross-armhf \
+docker run -it --rm -v $(pwd)/.config:/tmp/.config moul/kernel-builder \
 	/bin/bash -xec ' \
 		git fetch --tags && git checkout v3.19 && \
-		cp /tmp/.config .config && make oldconfig && cp .config /tmp/.config \
+		cp /tmp/.config .config && \
+		make oldconfig && \
+		cp .config /tmp/.config \
 	'
 ```
 
-License
--------
+Checkout `v3.19` stable branch of the kernel and do a `make menuconfig` with `armhf` cross tools
+
+```
+docker run -it --rm -v $(pwd)/.config:/tmp/.config \
+	-e ARCH=arm -e CROSS_COMPILE="ccache arm-linux-gnueabihf-" \
+	moul/kernel-builder \
+	/bin/bash -xec ' \
+		git fetch --tags && git checkout v3.19 && \
+		cp /tmp/.config .config && \
+		make oldconfig && \
+		cp .config /tmp/.config \
+	'
+```
+
+## License
 
 MIT
