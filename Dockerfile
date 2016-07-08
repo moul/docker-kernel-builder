@@ -34,19 +34,12 @@ ENV KVER=stable              \
     DIST_DIR=/dist           \
     LINUX_DIR=/usr/src/linux \
     LINUX_REPO_URL=git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
-
-
 RUN mkdir -p ${SRC_DIR} ${CCACHE_DIR} ${DIST_DIR}  \
  && cd /usr/src                                    \
  && git clone ${LINUX_REPO_URL}                    \
  && ln -s ${SRC_DIR}/linux-${KVER} ${LINUX_DIR}
 WORKDIR ${LINUX_DIR}
+
+
 # Update git tree
 RUN git fetch --tags
-
-
-# Example envs:
-# i386:   n/a
-# x86_64  n/a
-# armhf:  ENV ARCH=arm CROSS_COMPILE="ccache arm-linux-gnueabihf-"
-# arm:    ENV ARCH=arm CROSS_COMPILE="ccache arm-linux-gnueabi-"
