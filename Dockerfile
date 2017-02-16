@@ -12,6 +12,7 @@ RUN apt-get update               \
     ccache                       \
     gcc-arm-linux-gnueabihf      \
     gccgo-4.7-arm-linux-gnueabi  \
+    gcc-aarch64-linux-gnu        \
     git                          \
     libncurses-dev               \
     libssl-dev                   \
