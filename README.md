@@ -1,5 +1,7 @@
 # docker-kernel-builder
 
+[![GuardRails badge](https://badges.production.guardrails.io/moul/docker-kernel-builder.svg)](https://www.guardrails.io)
+
 Kernel build environment in Docker
 
 https://registry.hub.docker.com/u/moul/kernel-builder/
